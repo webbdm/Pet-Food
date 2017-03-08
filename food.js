@@ -1,25 +1,28 @@
-var foodcontainer = document.getElementById("foodcontainer");
+var foodContainer = document.getElementById("foodContainer");
 
 function makeDom(xhrData){
 
-	var badgesString = "";
-	var currentBadge;
+	var newString = "";
+	var currentdog;
 
 	for (var i=0; i<xhrData.badges.length; i++){
-		currentBadge = xhrData.badges[i];
+		currentdog = xhrData.badges[i];
 	 
-	 badgesString += `<div class="col-sm-6 col-md-4 badgeHolder">`;
-	 badgesString += `<img src="${xhrData.badges[i].icon_url}">`;
-	 badgesString += `</div>`;
+	 newString += ``;
+	 newString += ``;
+	 food += ``;
 	 } 
 
-	 treehouseContainer.innerHTML = badgesString;
+	 foodContainer.innerHTML = newString;
 }
 
 function executeThisCodeAfterFileLoaded(){
-	var data = JSON.parse(this.responseText);
-	console.log(data);
-	makeDom(data);
+	var doggieData = JSON.parse(this.responseText);
+	//var kittyData = JSON.parse(this.responseText);
+	console.log(doggieData);
+	//console.log(kittyData);
+	makeDom(doggieData);
+	//makeDom(kittyData)
 }
 
 function executeThisCodeAfterFileFails(){
@@ -27,9 +30,16 @@ function executeThisCodeAfterFileFails(){
 
 }
 
-var thRequest = new XMLHttpRequest();
-thRequest.addEventListener("load", executeThisCodeAfterFileLoaded);
-thRequest.addEventListener("error", executeThisCodeAfterFileFails);
-thRequest.open("GET","https://teamtreehouse.com/geoffwebb.json");
-thRequest.send();
-console.log("thRequest", thRequest);
+var dogRequest = new XMLHttpRequest();
+dogRequest.addEventListener("load", executeThisCodeAfterFileLoaded);
+dogRequest.addEventListener("error", executeThisCodeAfterFileFails);
+dogRequest.open("GET","dogFood.json");
+dogRequest.send();
+console.log("dogRequest", dogRequest);
+
+// var catRequest = new XMLHttpRequest();
+// catRequest.addEventListener("load", executeThisCodeAfterFileLoaded);
+// catRequest.addEventListener("error", executeThisCodeAfterFileFails);
+// catRequest.open("GET","catFood.json");
+// catRequest.send();
+// console.log("catRequest", catRequest);
