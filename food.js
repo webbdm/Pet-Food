@@ -23,7 +23,7 @@ function makeDom(xhrData){
 
 function executeThisCodeAfterFileLoaded(){
 	var doggieData = JSON.parse(this.responseText);
-	//var kittyData = JSON.parse(this.responseText);
+	var kittyData = JSON.parse(this.responseText);
 	console.log(doggieData);
 	//console.log(kittyData);
 	makeDom(doggieData);
@@ -42,9 +42,9 @@ dogRequest.open("GET","dogFood.json");
 dogRequest.send();
 console.log("dogRequest", dogRequest);
 
-// var catRequest = new XMLHttpRequest();
-// catRequest.addEventListener("load", executeThisCodeAfterFileLoaded);
-// catRequest.addEventListener("error", executeThisCodeAfterFileFails);
-// catRequest.open("GET","catFood.json");
-// catRequest.send();
-// console.log("catRequest", catRequest);
+var catRequest = new XMLHttpRequest();
+catRequest.addEventListener("load", executeThisCodeAfterFileLoaded);
+catRequest.addEventListener("error", executeThisCodeAfterFileFails);
+catRequest.open("GET","catFood.json");
+catRequest.send();
+console.log("catRequest", catRequest);
