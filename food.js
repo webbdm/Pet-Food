@@ -7,7 +7,8 @@ function dogDom(xhrData){
 
 	for (var i=0; i<xhrData.dog_brands.length; i++){
 		current = xhrData.dog_brands[i];
-		newString += `<div>${current.name}</div>`;
+		newString += `<div class="thumbnail">`
+		newString += `<div class="caption">${current.name}</div>`;
 
 		 for (var j=0; j<xhrData.dog_brands[i].types.length; j++){
 		 	newString +=`<div>${xhrData.dog_brands[i].types[j].type}</div>`;
@@ -17,6 +18,7 @@ function dogDom(xhrData){
 
 		  	}
 		 }
+		newString += `</div>`; 
 	}
 	foodContainer.innerHTML += newString;
 }
@@ -28,16 +30,18 @@ function catDom(xhrData){
 
 	for (var i=0; i<xhrData.cat_brands.length; i++){
 		current = xhrData.cat_brands[i];
-		newString += `<div>${current.name}</div>`;
+		newString += `<div class="thumbnail">`
+		newString += `<div class="caption">${current.name}</div>`;
+		newString += `<div>${current.breeds.join("-")}</div>`
 
 		 for (var j=0; j<xhrData.cat_brands[i].types.length; j++){
 		 	newString +=`<div>${xhrData.cat_brands[i].types[j].type}</div>`;
-		 	
 		 	for (var k=0; k<xhrData.cat_brands[i].types[j].volumes.length; k++){
 		 		newString += `<div>${xhrData.cat_brands[i].types[j].volumes[k].name} for ${xhrData.cat_brands[i].types[j].volumes[k].price}</div>`;
 
 		  	}
 		 }
+		newString += `</div>`;
 	}
 
 	
